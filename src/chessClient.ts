@@ -7,6 +7,7 @@ type Player = {
 
 export class Game {
 	url: string = '';
+	moveIndex = 0;
 	pgn: string = '';
 	time_control: string = '';
 	end_time: number = 0;
@@ -36,7 +37,7 @@ export class Game {
 	}
 	const gameData = await gameDayUrl.json();
 	const rawGame = gameData.games[gameData.games.length - 1];
-	const game = new Game;
+	const game = new Game();
 	game.setGame(rawGame);
 
 	return game;

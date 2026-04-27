@@ -9,13 +9,10 @@ if (!app) {
 app.textContent = "Hello chess viewer";*/
 
 import './style.css';
-import { createLayout } from './layout';
-import { getLatestGame } from './chessClient';
+import { App } from './app';
 
-const app = document.querySelector<HTMLDivElement>('#app');
-if (!app) throw new Error('App not found');
 
-const ui = createLayout(app);
-
- 
-
+const root = document.querySelector<HTMLDivElement>('#app');
+if (!root) throw new Error('App not found');
+const app = new App(root);
+app.start();
