@@ -1,6 +1,7 @@
 import { createLayout, createGameLayout } from './layout';
 import { getLatestGame } from './chessClient';
 import { Game } from './chessClient';
+import boardImg from '../assets/boardImg.png';
 
 export class App {
   private ui;
@@ -37,9 +38,20 @@ export class App {
     if (!this.game)
         return;
     this.gameUi = createGameLayout(this.root);
-    this.gameUi.gameInfo.textContent = 'Game loaded';
-    this.gameUi.board.textContent = this.game.pgn;//Board, now just holds pgn
-    
+    this.gameUi.moveInfo.textContent = 'Game loaded';
+    this.gameUi.board.style.backgroundImage = `url(${boardImg})`;
+    this.gameUi.board.style.backgroundSize = '100% 100%';
+    const piece = document.createElement('img');
+    piece.src = `url(${'../assets/wQ.svg'})`;
+    piece.classList.add('piece');
+
+    this.gameUi.board.appendChild(piece);
+
+    this.gameUi.gameInfo.textContent = this.game.white.username;
+    this.gameUi.gameInfo.textContent = this.game.white.result;//Board, now just holds pgn
+//Board, now just holds pgn
+    this.gameUi.gameInfo.textContent = this.game.black.username;//Board, now just holds pgn
+    this.gameUi.gameInfo.textContent = this.game.black.result;
     this.gameUi.nextBtn.addEventListener('click', () => {
       this.gameUi!.moveInfo.textContent = 'Next clicked';
     });

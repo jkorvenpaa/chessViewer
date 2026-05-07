@@ -1,3 +1,10 @@
+/*4px     = tiny spacing
+8px     = small spacing
+16px    = normal spacing
+24px    = comfortable spacing
+32px    = large spacing
+64px    = huge spacing*/
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,12 +21,7 @@ body {
 h1 {
   margin-top: 0;
   margin-bottom: 16px;
-}
-
-.controls {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
+  scroll-margin-inline-end: 8;
 }
 
 input,
@@ -29,33 +31,68 @@ button {
 }
 
 .viewer {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
+  display: grid;
+
+  grid-template-columns: 180px 400px;
+  grid-template-rows: 400px auto;
+
+  justify-content: center;
+  align-items: start;
+
+  column-gap: 64px;
+  row-gap: 24px;
 }
 
 .board {
+  grid-column: 2;
+  grid-row: 1;
+
   display: grid;
-  grid-template-columns: repeat(8, 60px);
-  grid-template-rows: repeat(8, 60px);
-  border: 2px solid #333;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+
+  width: 400px;
+  height: 400px;
+}
+
+.controls {
+  grid-column: 2;
+  grid-row: 2;
+
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.info {
+  grid-column: 1;
+  grid-row: 1;
+
+  min-width: 180px;
+  padding-top: 12px;
 }
 
 .square {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
 }
 
 .light {
-  background: #d5870a;
+  background: #f0d9b5;
 }
 
 .dark {
   background: #b58863;
 }
 
-.info {
-  min-width: 200px;
+.piece {
+  width: 90%;
+  height: 90%;
+}
+
+#backBtn {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
 }
