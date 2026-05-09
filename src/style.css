@@ -13,15 +13,21 @@ body {
 }
 
 .app {
+  position: relative;
   max-width: 900px;
   margin: 40px auto;
   padding: 24px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
 h1 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  scroll-margin-inline-end: 8;
+  margin: 0;
 }
 
 input,
@@ -30,9 +36,13 @@ button {
   font-size: 16px;
 }
 
+.header .controls {
+  display: flex;
+  gap: 12px;
+}
+
 .viewer {
   display: grid;
-
   grid-template-columns: 180px 400px;
   grid-template-rows: 400px auto;
 
@@ -55,7 +65,7 @@ button {
   height: 400px;
 }
 
-.controls {
+.viewer .controls {
   grid-column: 2;
   grid-row: 2;
 
@@ -64,7 +74,7 @@ button {
   gap: 12px;
 }
 
-.info {
+.viewer .info {
   grid-column: 1;
   grid-row: 1;
 

@@ -1,11 +1,14 @@
 export const createLayout = (root: HTMLDivElement) => {
-  root.innerHTML = `
+  root.innerHTML = 
+  `
     <div class="app">
-      <h1>Chess Viewer</h1>
+      <div class="header">
+        <h1>Chess Viewer</h1>
 
-      <div class="controls">
-        <input id="username" placeholder="chess.com username" />
-        <button id="loadGame">Load Game</button>
+        <div class="controls">
+          <input id="username" placeholder="chess.com username" />
+          <button id="loadGame">Load Game</button>
+        </div>
       </div>
 
       <div class="info">
