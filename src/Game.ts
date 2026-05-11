@@ -7,7 +7,7 @@ type Player = {
 
 export class Game {
 	url: string = '';
-	moveIndex = 0;
+	private moveIndex = 0;
 	pgn: string = '';
 	time_control: string = '';
 	end_time: number = 0;
@@ -23,6 +23,7 @@ export class Game {
     	this.black = rawGame.black;
   }
 };
+
 
 	export const getLatestGame = async (playerName: string): Promise<Game> => {
 	const playerArchive = await fetch (`https://api.chess.com/pub/player/${playerName}/games/archives`);
