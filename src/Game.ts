@@ -8,6 +8,7 @@ type Player = {
 export class Game {
 	url: string = '';
 	private moveIndex = 0;
+	private gameLen = 0;
 	pgn: string = '';
 	time_control: string = '';
 	end_time: number = 0;
@@ -21,6 +22,24 @@ export class Game {
     	this.end_time = rawGame.end_time;
     	this.white = rawGame.white;
     	this.black = rawGame.black;
+  }
+
+  	setGameLength(length :number){
+		this.gameLen = length;
+	}
+  	getMoveIndex():number{
+		return this.moveIndex;
+	}
+  	prevMove():number{
+	if (this.moveIndex > 0)
+		this.moveIndex--;
+	return this.moveIndex;
+  }
+
+	nextMove():number{
+	if (this.moveIndex < this.gameLen)
+		this.moveIndex++;
+	return this.moveIndex;
   }
 };
 
@@ -43,6 +62,7 @@ export class Game {
 
 	return game;
 }
+
 
 /*
 game example:
