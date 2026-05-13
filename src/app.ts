@@ -14,26 +14,23 @@ export class App {
 	constructor(private root: HTMLDivElement) {
 		this.ui = createLayout(this.root);
 	}
-
 	start(): void {
 		this.ui.loadBtn.addEventListener('click', () => this.loadGame());
 	}
 
 	private async loadGame(): Promise<void> {
 		const username = this.ui.username.value.trim();
-		if (!username) return;
-
+		if (!username)
+			return;
 		this.ui.gameInfo.textContent = `Loading ${username}...`;
 		try{
 			this.game = await getLatestGame(username);
 			this.ui.gameInfo.textContent = 'Game loaded';
-
 		}
 		catch (err) {
 			this.ui.gameInfo.textContent = 'No game found';
 			return;
 		}
-
 		try{
 			this.showGameLayout();
 			if (!this.gameUi)
