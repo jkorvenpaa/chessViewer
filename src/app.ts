@@ -26,20 +26,21 @@ export class App {
 		try{
 			this.game = await getLatestGame(username);
 			this.ui.gameInfo.textContent = 'Game loaded';
+			this.showGameLayout();
+			this.startGame();
 		}
 		catch (err) {
 			this.ui.gameInfo.textContent = 'No game found';
 			return;
 		}
-		try{
-			this.showGameLayout();
-			if (!this.gameUi)
-					return;
-			const boardView = new BoardView(this.gameUi.board);
+	}
+
+	private startGame(): void{
+			const boardView = new BoardView(this.gameUi!.board);
 			const mover = new chessMover;
-			mover.startGame(this.game, boardView);
+			mover.startGame(this.game!, boardView);
 			
-			this.gameUi.nextBtn.addEventListener('click', () => {
+			this.gameUi!.nextBtn.addEventListener('click', () => {
 				if (this.game){
 					this.game.nextMove();
 					mover.chessMove(this.game, boardView);
@@ -47,17 +48,13 @@ export class App {
 				this.gameUi!.moveInfo.textContent = 'Next clicked';
 			});
 
-			this.gameUi.prevBtn.addEventListener('click', () => {
+			this.gameUi!.prevBtn.addEventListener('click', () => {
 				if (this.game){
 					this.game.prevMove();
 					mover.chessMove(this.game, boardView);
 				}
 				this.gameUi!.moveInfo.textContent = 'Previous clicked';
 		});
-		}
-		catch (err){
-				return;
-		}
 	}
 
 	private showGameLayout(): void {

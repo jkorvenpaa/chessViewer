@@ -6,103 +6,103 @@
 64px    = huge spacing*/
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #cff98a;
-  color: #222;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: #cff98a;
+	color: #222;
 }
 
 .app {
-  position: relative;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 24px;
+	position: relative;
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 24px;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
 }
 
 h1 {
-  margin: 0;
+	margin: 0;
 }
 
 input,
 button {
-  padding: 10px 14px;
-  font-size: 16px;
+	padding: 10px 14px;
+	font-size: 16px;
 }
 
 .header .controls {
-  display: flex;
-  gap: 12px;
+	display: flex;
+	gap: 12px;
 }
 
 .viewer {
-  display: grid;
-  grid-template-columns: 180px 400px;
-  grid-template-rows: 400px auto;
+	display: grid;
+	grid-template-columns: 180px 400px;
+	grid-template-rows: 400px auto;
 
-  justify-content: center;
-  align-items: start;
+	justify-content: center;
+	align-items: start;
 
-  column-gap: 64px;
-  row-gap: 24px;
+	column-gap: 64px;
+	row-gap: 24px;
 }
 
 .board {
-  grid-column: 2;
-  grid-row: 1;
+	grid-column: 2;
+	grid-row: 1;
 
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(8, 1fr);
 
-  width: 400px;
-  height: 400px;
+	width: 400px;
+	height: 400px;
 }
 
 .viewer .controls {
-  grid-column: 2;
-  grid-row: 2;
+	grid-column: 2;
+	grid-row: 2;
 
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+	display: flex;
+	justify-content: center;
+	gap: 12px;
 }
 
 .viewer .info {
-  grid-column: 1;
-  grid-row: 1;
+	grid-column: 1;
+	grid-row: 1;
 
-  min-width: 180px;
-  padding-top: 12px;
+	min-width: 180px;
+	padding-top: 12px;
 }
 
 .square {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .light {
-  background: #f0d9b5;
+	background: #f0d9b5;
 }
 
 .dark {
-  background: #e78332;
+	background: #e78332;
 }
 
 .piece {
-  width: 90%;
-  height: 90%;
+	width: 90%;
+	height: 90%;
 }
 
 #backBtn {
-  position: absolute;
-  left: 32px;
-  bottom: 32px;
+	position: absolute;
+	left: 32px;
+	bottom: 32px;
 }
