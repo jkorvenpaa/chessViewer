@@ -1,7 +1,6 @@
 import {createLayout, createGameLayout} from './layout';
 import {getLatestGame} from './Game';
 import {Game} from './Game';
-import boardImg from '../assets/boardImg.png';
 import {BoardView} from './BoardView';
 import {chessMover} from './chess';
 import { Chess } from 'chess.js';
