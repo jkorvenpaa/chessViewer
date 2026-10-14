@@ -6,7 +6,7 @@ export class chessMover{
 private chess = new Chess();
 private moves: string[] = [];
 
-startGame(game :Game, boardView :BoardView): Chess{
+startView(game :Game, boardView :BoardView): Chess{
 
 try{
 	this.chess.reset();
@@ -15,6 +15,7 @@ try{
 	this.moves = this.chess.history();
 	game.setGameLength(this.moves.length);
 	this.chess.reset();
+	//renderInfo(game);
 	return (this.chess);
 	}
 	catch (err){
@@ -32,11 +33,23 @@ chessMove(game :Game, boardView :BoardView): void{
 		this.chess.move(move);
 	}
 	boardView.render(this.chess.board());
+	//renderInfo(game);
 	}
 };
 
 
-/* loadPgn()
+
+/*
+
+renderInfo(game :Game) :void{
+	
+}
+username, rating.
+game: Movecounter x/max, timecontrol
+result after final move
+
+
+loadPgn()
 history()
 move()
 board()

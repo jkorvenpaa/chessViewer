@@ -6,3 +6,4 @@ if (!root)
   throw new Error('App not found');
 const app = new App(root);
 app.start();
+

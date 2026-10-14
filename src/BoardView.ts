@@ -49,7 +49,7 @@ render(boardState: any): void {
       square.innerHTML = '';
       if (key) {
         const img = document.createElement('img');
-        img.src = `/chessViewer/assets/${key}.svg`;
+        img.src = new URL(`../assets/${key}.svg`, import.meta.url).href;
         img.classList.add('piece');
         square.appendChild(img);
       }

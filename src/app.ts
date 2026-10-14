@@ -2,7 +2,7 @@ import {createLayout, createGameLayout} from './layout';
 import {getLatestGame} from './Game';
 import {Game} from './Game';
 import {BoardView} from './BoardView';
-import {chessMover} from './chess';
+import {chessMover} from './Mover';
 import { Chess } from 'chess.js';
 
 export class App {
@@ -37,14 +37,14 @@ export class App {
 	private startGame(): void{
 			const boardView = new BoardView(this.gameUi!.board);
 			const mover = new chessMover;
-			mover.startGame(this.game!, boardView);
+			mover.startView(this.game!, boardView);
 			
 			this.gameUi!.nextBtn.addEventListener('click', () => {
 				if (this.game){
 					this.game.nextMove();
 					mover.chessMove(this.game, boardView);
 				}
-				this.gameUi!.moveInfo.textContent = 'Next clicked';
+				//this.gameUi!.moveInfo.textContent = 'Next clicked';
 			});
 
 			this.gameUi!.prevBtn.addEventListener('click', () => {
@@ -52,7 +52,7 @@ export class App {
 					this.game.prevMove();
 					mover.chessMove(this.game, boardView);
 				}
-				this.gameUi!.moveInfo.textContent = 'Previous clicked';
+				//this.gameUi!.moveInfo.textContent = 'Previous clicked';
 		});
 	}
 
